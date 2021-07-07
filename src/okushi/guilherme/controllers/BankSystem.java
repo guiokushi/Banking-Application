@@ -1,25 +1,37 @@
 package okushi.guilherme.controllers;
 
 import okushi.guilherme.menus.Menus;
-
 import java.util.Scanner;
 
-
+/**
+ * Main system for the application
+ */
 public class BankSystem {
     Menus menus;
     Account account;
     Scanner scanner;
+
+    /**
+     * Constructor for the BankSystem
+     */
     public BankSystem() {
         menus = new Menus();
-        account = new Account();
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Keeps the application running, while managing the system
+     */
     public void run(){
         int option;
         int amount;
+        System.out.println("Insert your name: ");
+        String name = scanner.nextLine();
+        System.out.println("Insert your ID: ");
+        String ID = scanner.nextLine();
+        account = new Account(ID,name);
         do {
-            option = menus.menuSystem();
+            option = menus.menuSystem(ID,name);
             switch (option){
                 case 0:
                     break;
