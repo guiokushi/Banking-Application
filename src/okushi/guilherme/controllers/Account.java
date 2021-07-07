@@ -19,7 +19,7 @@ public class Account {
             System.out.println("Your balance is too low!");
         }
     }
-    
+
     void deposit(int amount){
         this.balance += amount;
         this.previousTrasaction = amount;
@@ -27,7 +27,13 @@ public class Account {
     }
 
     void previousTransaction(){
-
+        if (previousTrasaction > 0){
+            System.out.println("Deposited: " + previousTrasaction);
+        }else if (previousTrasaction < 0){
+            System.out.println("Withdrawn: " +Math.abs(previousTrasaction));
+        }else {
+            System.out.println("No transaction occured");
+        }
     }
 
 }
